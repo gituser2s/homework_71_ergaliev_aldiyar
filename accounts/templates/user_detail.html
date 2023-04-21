@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Пользователь{% endblock %}
+{% load static %}
+
+{% block menu %}
+    <li><a href=" {% url 'change' user_obj.pk %}"><img class="edit-icon" src="{% static 'icons/edit.png' %}" alt="edit"></a></li>
+{% endblock %}
+
+{% block content %}
+    <h1>Личная страница пользователя {{ user_obj.get_full_name|default:user_obj.username }}</h1>
+    {% if user_obj.avatar %}
+        <img class="avatar" src="{{ user_obj.avatar.url }}" width="250" height="250" alt="user picture">
+    {% endif %}
+    <p>Логин: {{ user_obj.username }}</p>
+    <p>Инфо: {{ user_obj.information }}</p>
+    <p>Пол: {{ user_obj.gender }}</p>
+    <p>Почта: {{ user_obj.email }}</p>
+    <p>Номер: {{ user_obj.phone }}</p>
+{% endblock %}

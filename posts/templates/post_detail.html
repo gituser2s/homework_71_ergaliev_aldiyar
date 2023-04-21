@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Задача{% endblock %}
+{% block menu %}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1>Пост</h1>
+        <p>Автор: {{ post.author }}</p>
+        {% if post.image %}
+                <img src="{{ post.image.url }}" alt="post" class="IMG">
+        {% endif %}
+        <p>Описание: {{ post.description }}</p>
+    </div>
+{% endblock %}
